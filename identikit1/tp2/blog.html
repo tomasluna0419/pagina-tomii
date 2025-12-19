@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Blog Xeneize – TP2 (sin CSS)</title>
+  <meta name="description" content="TP2 con HTML5 semántico, flexbox inline y breakpoints simulados con JS, sin CSS externo." />
+</head>
+
+<body style="margin:0; font-family:system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; background:#0e0f12; color:#f5f7fb; line-height:1.5;">
+
+  <!-- Link de salto -->
+  <a href="#contenido" style="position:absolute; left:-9999px; top:auto; background:#000; color:#fff; padding:8px 12px; z-index:10;">Saltar al contenido</a>
+
+  <!-- HEADER -->
+  <header class="site-header"
+          style="position:sticky; top:0; z-index:5; background:linear-gradient(0deg,#002855,#00183b); box-shadow:0 8px 28px rgba(0,0,0,.25);">
+    <!-- Marca -->
+    <div style="display:flex; align-items:center; gap:12px; padding:12px 16px;">
+      <img src="img2/logo.png" alt="Escudo estilizado"
+           style="width:36px; height:36px; border-radius:50%; object-fit:cover;">
+      <h1 style="margin:0; font-size:20px; color:#ffc72c;">Blog Xeneize</h1>
+    </div>
+
+    <!-- NAV -->
+    <nav aria-label="Principal" style="display:flex; align-items:center; justify-content:space-between; padding:0 16px 12px;">
+      <button id="navToggle"
+              aria-expanded="false" aria-controls="menu"
+              style="background:#ffc72c; color:#111; border:0; padding:8px 10px; border-radius:8px; font-weight:700; cursor:pointer;">
+        ☰
+      </button>
+
+      <ul id="menu"
+          style="list-style:none; margin:0; padding:0; display:none; gap:12px; flex-wrap:wrap;">
+        <li style="display:inline;"><a href="#" style="color:#f5f7fb; text-decoration:none; padding:8px 12px; border-radius:8px;">Inicio</a></li>
+        <li style="display:inline;"><a href="#notas" style="color:#f5f7fb; text-decoration:none; padding:8px 12px; border-radius:8px;">Notas</a></li>
+        <li style="display:inline;"><a href="#galeria" style="color:#f5f7fb; text-decoration:none; padding:8px 12px; border-radius:8px;">Galería</a></li>
+        <li style="display:inline;"><a href="#multimedia" style="color:#f5f7fb; text-decoration:none; padding:8px 12px; border-radius:8px;">Multimedia</a></li>
+        <li style="display:inline;"><a href="#contacto" style="color:#f5f7fb; text-decoration:none; padding:8px 12px; border-radius:8px;">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- HERO SIN IMAGEN, TEXTO CENTRADO Y MAX-WIDTH -->
+  <section aria-label="Imagen de portada"
+           style="position:relative; background:#002855; padding:60px 0;">
+    <div id="heroText"
+         style="text-align:center; padding:12px; font-weight:600; text-shadow:0 2px 10px #000;">
+      <div style="max-width:700px; margin:0 auto;">
+        <h2 style="margin:0 0 8px;">Pasión, historia y presente</h2>
+        <p style="margin:0;">Boca Juniors es mucho más que un club: es identidad, historia y un sentimiento que atraviesa generaciones. Aquí vas a encontrar noticias, análisis, curiosidades y momentos únicos del mundo xeneize.</p>
+      </div>
+    </div>
+  </section>
+
+  <main id="contenido">
+
+    <!-- GRID -->
+    <section id="notas" aria-label="Notas destacadas"
+             style="display:flex; gap:24px; padding:24px; max-width:1200px; margin:0 auto; align-items:flex-start;">
+
+      <!-- Card 1 -->
+      <article style="flex:1 1 0; background:#171923; border-radius:16px;
+                      box-shadow:0 8px 28px rgba(0,0,0,.25); overflow:hidden;">
+        <img src="img2/hinchada_bocaJR.jpg" alt="Hinchas celebrando en la tribuna"
+             style="width:100%; height:200px; object-fit:cover; display:block;">
+        <div style="padding:16px;">
+          <h3 style="margin:0 0 8px;">Crónica del último partido</h3>
+          <p style="margin:0 0 12px; color:#b8c0cc;">Análisis táctico y emocional del encuentro más reciente.</p>
+          <a href="pagina1.html" style="display:inline-block; background:#ffc72c; color:#111; text-decoration:none; font-weight:700; padding:10px 14px; border-radius:10px;">Leer más</a>
+        </div>
+      </article>
+
+      <!-- Card 2 -->
+      <article style="flex:1 1 0; background:#171923; border-radius:16px;
+                      box-shadow:0 8px 28px rgba(0,0,0,.25); overflow:hidden;">
+        <img src="img2/merentiel.jpg" alt="Jugador rematando al arco"
+             style="width:100%; height:200px; object-fit:cover; display:block;">
+        <div style="padding:16px;">
+          <h3 style="margin:0 0 8px;">Jugador de la fecha</h3>
+          <p style="margin:0 0 12px; color:#b8c0cc;">Figura, datos y mapa de calor. ¿Quién fue tu MVP?</p>
+          <a href="pagina2.html" style="display:inline-block; background:#ffc72c; color:#111; text-decoration:none; font-weight:700; padding:10px 14px; border-radius:10px;">Leer más</a>
+        </div>
+      </article>
+
+      <!-- SIDEBAR -->
+      <aside aria-label="Sidebar"
+             id="sidebar"
+             style="flex:0 0 300px; background:#171923; border-radius:16px;
+                    box-shadow:0 8px 28px rgba(0,0,0,.25); padding:16px;">
+        <section style="margin-bottom:16px;">
+          <h4 style="margin:0 0 8px;">Suscripción</h4>
+          <form action="#" method="post">
+            <label for="email" style="display:block; margin-bottom:6px;">Email</label>
+            <input id="email" name="email" type="email" placeholder="tu@correo.com" required
+                   style="width:100%; padding:10px; border-radius:8px; border:1px solid #2a2e3a; background:#0f1118; color:#f5f7fb; margin:0 0 12px;">
+            <button type="submit"
+                    style="display:inline-block; background:#ffc72c; color:#111; border:0;
+                           font-weight:700; padding:10px 14px; border-radius:10px; cursor:pointer;">
+              Suscribirme
+            </button>
+          </form>
+        </section>
+
+        <section>
+          <h4 style="margin:0 0 8px;">Links útiles</h4>
+          <ul style="margin:0; padding-left:18px;">
+            <li><a href="https://www.bocajuniors.com.ar/" target="_blank" rel="noopener" style="color:#f5f7fb;">Sitio oficial</a></li>
+            <li><a href="#galeria" style="color:#f5f7fb;">Galería</a></li>
+            <li><a href="#multimedia" style="color:#f5f7fb;">Multimedia</a></li>
+          </ul>
+        </section>
+      </aside>
+    </section>
+
+    <!-- GALERÍA -->
+    <section id="galeria" aria-label="Galería de imágenes"
+             style="display:grid; grid-template-columns:repeat(2,1fr); gap:16px;
+                    padding:0 24px 24px; max-width:1200px; margin:0 auto;">
+
+      <!-- Banderas + botón -->
+      <figure style="background:#171923; border-radius:16px;
+                     box-shadow:0 8px 28px rgba(0,0,0,.25); overflow:hidden; margin:0;">
+        <img src="img2/bombonera_fondo.jpg" alt="Banderas azul y oro"
+             style="width:100%; height:220px; object-fit:cover; display:block;">
+        <figcaption style="padding:10px 12px; color:#b8c0cc;">
+          la Bombonera
+        </figcaption>
+        <div style="padding:12px;">
+          <a href="pagina5.html"
+             style="display:inline-block; background:#ffc72c; color:#111; text-decoration:none;
+                    font-weight:700; padding:10px 14px; border-radius:10px;">
+            Leer más
+          </a>
+        </div>
+      </figure>
+
+      <!-- Detalles + botón -->
+      <figure style="background:#171923; border-radius:16px;
+                     box-shadow:0 8px 28px rgba(0,0,0,.25); overflow:hidden; margin:0;">
+        <img src="img2/casaca.jpg" alt="Camiseta xeneize en primer plano"
+             style="width:60%; height:220px; object-fit:cover; display:block;">
+        <figcaption style="padding:10px 12px; color:#b8c0cc;">
+          Detalles que enamoran.
+        </figcaption>
+        <div style="padding:12px;">
+          <a href="pagina3.html"
+             style="display:inline-block; background:#ffc72c; color:#111; text-decoration:none;
+                    font-weight:700; padding:10px 14px; border-radius:10px;">
+            Leer más
+          </a>
+        </div>
+      </figure>
+    </section>
+
+    <!-- MULTIMEDIA -->
+    <section id="multimedia" aria-label="Sección multimedia"
+             style="display:grid; grid-template-columns:1fr 1fr; gap:24px;
+                    padding:0 24px 24px; max-width:1200px; margin:0 auto;">
+
+      <article style="background:#171923; border-radius:16px;
+                      box-shadow:0 8px 28px rgba(0,0,0,.25); padding:16px;">
+        <h3 style="margin-top:0;">video sobre el boca de bianchi</h3>
+        <video controls width="100%" poster="img/nota2.jpg" style="width:100%;">
+          <source src="media/video boca.mp4" type="video/mp4">
+          Tu navegador no soporta video HTML5.
+        </video>
+      </article>
+
+      <!-- Canción + botón -->
+      <article style="background:#171923; border-radius:16px;
+                      box-shadow:0 8px 28px rgba(0,0,0,.25); padding:16px;">
+        <h3 style="margin-top:0;">Canción de cancha</h3>
+        <audio controls style="width:100%;">
+          <source src="media/QUIERO QUEMAR EL GALLINERO ► con letra [kQPJcK8iIv4].mp3" type="audio/mpeg">
+          Tu navegador no soporta audio HTML5.
+        </audio>
+        <div style="padding-top:12px;">
+          <a href="pagina4.html"
+             style="display:inline-block; background:#ffc72c; color:#111; text-decoration:none;
+                    font-weight:700; padding:10px 14px; border-radius:10px;">
+            Leer más
+          </a>
+        </div>
+      </article>
+    </section>
+
+    <!-- CONTACTO -->
+    <section id="contacto" aria-label="Contacto"
+             style="padding:0 24px 40px; max-width:1200px; margin:0 auto;">
+      <h3>Contacto</h3>
+      <p>Escribime si querés colaborar con el blog.</p>
+      <a href="mailto:tu@mail.com"
+         style="display:inline-block; background:#ffc72c; color:#111;
+                text-decoration:none; font-weight:700; padding:10px 14px; border-radius:10px;">
+        Enviar correo
+      </a>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer style="padding:18px; text-align:center; color:#b8c0cc; border-top:1px solid #273046;">
+    <p style="margin:0;">© 2025 Blog Xeneize – TP2 – Tomás Luna</p>
+  </footer>
+
+  <!-- JS: menú y breakpoints -->
+  <script>
+    const btn = document.getElementById('navToggle');
+    const menu = document.getElementById('menu');
+    const grid = document.querySelector('#notas');
+    const sidebar = document.getElementById('sidebar');
+    const gallery = document.getElementById('galeria');
+    const media = document.getElementById('multimedia');
+
+    function applyLayout() {
+      const w = window.innerWidth;
+
+      // Menú
+      if (w >= 992) {
+        btn.style.display = 'none';
+        menu.style.display = 'flex';
+      } else {
+        btn.style.display = 'inline-block';
+        menu.style.display = (btn.getAttribute('aria-expanded') === 'true') ? 'flex' : 'none';
+      }
+
+      // Layout responsivo
+      if (w <= 991) {
+        grid.style.flexDirection = 'column';
+        sidebar.style.order = '-1';
+        sidebar.style.width = '100%';
+        gallery.style.gridTemplateColumns = '1fr';
+        media.style.gridTemplateColumns = '1fr';
+      } else {
+        grid.style.flexDirection = 'row';
+        sidebar.style.order = '0';
+        sidebar.style.width = '300px';
+        gallery.style.gridTemplateColumns = '1fr 1fr';
+        media.style.gridTemplateColumns = '1fr 1fr';
+      }
+    }
+
+    btn.addEventListener('click', () => {
+      const expanded = btn.getAttribute('aria-expanded') === 'true';
+      btn.setAttribute('aria-expanded', String(!expanded));
+      menu.style.display = expanded ? 'none' : 'flex';
+    });
+
+    window.addEventListener('load', applyLayout);
+    window.addEventListener('resize', applyLayout);
+  </script>
+
+</body>
+</html>
