@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Acerca de — Formuleros</title>
+
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root{
+      --bg: #bcbcbc;
+      --card: #ffffff;
+      --text: #333;
+      --muted: #9b9b9b;
+      --brand: rgb(79, 16, 16);
+      --brand-dark: rgb(89, 0, 0);
+      --border: #ccc;
+      --radius: 8px;
+    }
+
+    body{
+      display:flex; flex-direction:column; min-height:100vh;
+      font-family: Arial, Helvetica, sans-serif; line-height:1.6;
+      background:var(--bg); color:var(--text);
+    }
+
+    a{ text-decoration:none; color:var(--muted); }
+    img{ max-width:100%; display:block; height:auto; border-radius:var(--radius); }
+
+    /* NAV */
+    nav{
+      display:flex; justify-content:center; align-items:center; flex-wrap:wrap;
+      background:var(--brand); padding:10px 40px; position:relative;
+    }
+    nav .logo{
+      display:flex; align-items:center; gap:8px;
+      position:absolute; left:20px; top:50%; transform:translateY(-50%);
+      color:#fff; font-weight:700;
+    }
+    nav ul{
+      display:flex; list-style:none; gap:16px; flex-wrap:wrap; justify-content:center; align-items:center;
+    }
+    nav ul li a{ font-weight:600; color:#e9e9e9; }
+
+    /* LAYOUT */
+    main{
+      flex:1; display:flex; justify-content:center; gap:24px; flex-wrap:wrap;
+      max-width:1200px; margin:20px auto; padding:0 16px;
+    }
+    .content, .aside{
+      display:flex; flex-direction:column; background:var(--card); padding:16px;
+      border-radius:var(--radius); box-shadow:0 2px 6px rgba(0,0,0,.1);
+    }
+    .content{ flex:1 1 700px; min-width:300px; gap:16px; }
+    .aside{ flex:1 1 280px; min-width:260px; gap:20px; height:fit-content; }
+
+    /* CABECERA */
+    .page-header{ display:flex; flex-direction:column; gap:6px; text-align:center; align-items:center; }
+    .page-header h1{ font-size:clamp(1.5rem,3vw,2.2rem); color:#111; }
+    .page-header p{ color:#555; }
+
+    /* HERO centrado */
+    .hero{
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      margin: 10px 0;
+    }
+    figure{
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      justify-content:center;
+      width:100%;
+    }
+    figure img{
+      width: 600px;
+      height: 500px;
+      object-fit: cover;
+      display:block;
+      margin:0 auto;
+    }
+    figure figcaption{
+      margin-top:6px; font-size:.9rem; color:#555; text-align:center;
+    }
+
+    /* CUERPO */
+    .about-body{
+      display:flex; flex-direction:column; gap:14px;
+      max-width:68ch; margin:0 auto;
+    }
+    .about-body h2{ margin-top:8px; font-size:1.25rem; text-align:center; }
+    .about-body blockquote{
+      border-left:4px solid var(--brand-dark); padding:8px 12px; background:#fafafa; color:#444; border-radius:var(--radius);
+    }
+
+    .timeline{ list-style:none; display:flex; flex-direction:column; gap:10px; }
+    .timeline li{
+      background:#fff; border:1px solid var(--border); border-radius:var(--radius); padding:10px 12px;
+    }
+
+    /* BOTONES */
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center;
+      padding:10px 14px; border-radius:var(--radius);
+      font-weight:700; cursor:pointer; border:none; text-align:center;
+      transition: transform .06s ease, opacity .2s ease;
+    }
+    .btn-primary{ background:var(--brand-dark); color:#fff; }
+    .btn-ghost{ background:#fff; color:#333; border:1px solid var(--border); }
+    .btn:active{ transform:scale(0.98); }
+    .btn:focus-visible{ outline:2px solid #0d0338; outline-offset:2px; }
+
+    .cta-row{ display:flex; gap:10px; justify-content:center; flex-wrap:wrap; }
+
+    /* ASIDE */
+    .aside section{ display:flex; flex-direction:column; gap:8px; }
+    .aside h3{ color:#333; border-bottom:2px solid #0d0338; padding-bottom:4px; margin-bottom:4px; }
+    .aside ul{ list-style:none; display:flex; flex-direction:column; gap:6px; }
+
+    .sobre-mi{ align-items:center; text-align:center; gap:10px; }
+    .sobre-mi img{ width:100px; height:100px; border-radius:50%; border:3px solid #a4a4a4; }
+    .sobre-mi p{ font-size:.9rem; color:#444; }
+
+    .newsletter{ align-items:center; text-align:center; gap:12px; }
+    .newsletter p{ color:#444; font-size:.95rem; }
+    .newsletter form{ display:flex; gap:8px; align-items:center; justify-content:center; flex-wrap:wrap; }
+    .newsletter input[type="email"]{
+      flex:1 1 160px; min-width:160px; max-width:220px;
+      padding:10px 12px; border:1px solid var(--border); border-radius:var(--radius); font-size:.95rem;
+    }
+
+    footer{
+      display:flex; align-items:center; justify-content:center;
+      height:60px; background:var(--brand-dark); color:#fff; margin-top:auto; text-align:center; gap:8px; padding:0 12px;
+    }
+
+    @media (max-width:768px){
+      main{ flex-direction:column; align-items:stretch; }
+      .content, .aside{ width:100%; }
+      figure img{ width:100%; height:auto; }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="blog.html" class="logo">
+      <img src="IMG/logo.png" alt="Logo del sitio" height="30" width="30">
+      <span>Formuleros</span>
+    </a>
+    <ul>
+      <li><a href="blog.html">INICIO</a></li>
+      <li><a href="acercade.html">ACERCA DE</a></li>
+      <li><a href="publicaciones.html">PUBLICACIONES</a></li>
+      <li><a href="contacto.html">CONTACTO</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <section class="content">
+      <header class="page-header">
+        <h1>Acerca de Formuleros</h1>
+        <p>Nuestra historia, misión y cómo llegamos hasta acá.</p>
+      </header>
+
+      <div class="hero">
+        <figure>
+          <img src="IMG/logo.png" alt="Garaje con autos y herramientas">
+          <figcaption>Pasión por los autos, desde el primer día.</figcaption>
+        </figure>
+      </div>
+
+      <div class="about-body">
+        <h2>Cómo empezó todo</h2>
+        <p>
+          Formuleros, creado por Juan Martín Souto, nació como un proyecto universitario de Desarrollo Web con una temática definida, y la misión de traerle a los fanáticos del automovilismo un blog para que estén al tanto de todo lo que pasa en la industria de los automóviles.
+        </p>
+
+         <p>
+          Nuestro objetivo es crear una comunidad que se mantenga informada desde una visión objetiva, con redactores que amen el rubro.
+         </p>
+        <h2>Hitos</h2>
+        <ul class="timeline">
+          <li><strong>2025:</strong> Lanzamos el blog</li>
+          <li><strong>2025:</strong> Primer artículo</li>
+          <li><strong>2025:</strong> Creamos el newsletter</li>
+        </ul>
+
+        <div class="cta-row">
+          <a class="btn btn-primary" href="publicaciones.html">Ver publicaciones</a>
+          <a class="btn btn-ghost" href="contacto.html">Contactarnos</a>
+        </div>
+      </div>
+    </section>
+
+    <aside class="aside">
+      <section class="sobre-mi">
+        <h3>Sobre mí</h3>
+        <img src="IMG/logo.png" alt="Foto de perfil">
+        <p>Formuleros es un Blog creado por y para el mundo automotriz, con tests y novedades en tiempo real.</p>
+      </section>
+
+      <section id="newsletter" class="newsletter">
+        <h3>Newsletter</h3>
+        <p>Suscribite para enterarte de las novedades</p>
+        <form action="recibido.html" method="get" aria-label="Formulario de newsletter">
+          <label for="email" class="sr-only">Correo electrónico</label>
+          <input type="email" id="email" name="email" placeholder="tu@email.com" required>
+          <button type="submit" class="btn btn-primary">Suscribirme</button>
+        </form>
+      </section>
+    </aside>
+  </main>
+
+  <footer>
+    <a href="acercade.html" style="color:#fff;">Volver al principio</a>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Linktree • TPs UADE</title>
+
+    <style>
+        /* === Fondo general === */
+        body {
+            margin: 0;
+            font-family: "Segoe UI", Arial, sans-serif;
+            background: radial-gradient(circle at top, #001d3d, #000814);
+            color: #f5f7fb;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* === Contenedor general === */
+        .wrapper {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(280px, 1fr));
+            gap: 24px;
+            width: min(1100px, 95%);
+        }
+
+        @media (max-width: 800px) {
+            .wrapper {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* === Card base === */
+        .card {
+            background: rgba(0, 0, 0, 0.45);
+            border-radius: 20px;
+            padding: 40px 32px;
+            text-align: center;
+            backdrop-filter: blur(6px);
+            box-shadow: 0 0 20px rgba(0,0,0,0.35);
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 32px;
+            font-weight: 700;
+        }
+
+        p {
+            font-size: 17px;
+            margin: 10px 0 28px;
+            color: #e0e4ef;
+        }
+
+        /* === Botones === */
+        .links a {
+            display: block;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 17px;
+            margin: 10px 0;
+            padding: 14px 0;
+            border-radius: 12px;
+            transition: 0.25s;
+        }
+
+        .links a:hover {
+            transform: scale(1.06);
+        }
+
+        footer {
+            margin-top: 20px;
+            font-size: 14px;
+            opacity: 0.8;
+        }
+
+        /* =========================
+           PARTE TOMI
+        ========================== */
+        .boca {
+            border: 2px solid #ffc72c;
+        }
+
+        .boca h1 {
+            color: #ffc72c;
+        }
+
+        .boca .links a {
+            background: #ffc72c;
+            color: #002855;
+        }
+
+        .boca .links a:hover {
+            background: #fdd34a;
+        }
+
+        /* =========================
+           PARTE JUAN
+        ========================== */
+        .independiente {
+            border: 2px solid #e10600;
+        }
+
+        .independiente h1 {
+            color: #e10600;
+        }
+
+        .independiente .links a {
+            background: #e10600;
+            color: #ffffff;
+        }
+
+        .independiente .links a:hover {
+            background: #ff2a1a;
+        }
+    </style>
+</head>
+<body>
+
+    <main class="wrapper">
+
+        <!-- =======================
+             LINKTREE (Tomi)
+        ======================== -->
+        <section class="card boca">
+
+            <h1>Tomás José Luna</h1>
+
+            <p>
+                Estudiante de Desarrollo de Software – UADE<br>
+                Fanático de Boca Juniors 💙💛
+            </p>
+
+            <div class="links">
+                <a href="/identikit1/tp1/index_sitio_tomi.html" target="_blank">TP1 – Index</a>
+                <a href="/identikit1/tp2/blog.html" target="_blank">TP2 – Blog</a>
+                <a href="/REFUGIO/index.html" target="_blank">Trabajo Final</a>
+            </div>
+
+            <footer>© 2025 — Tomás Luna</footer>
+        </section>
+
+        <!-- =======================
+           LINKTREE Juan
+        
+        ======================== -->
+        <section class="card independiente">
+
+            <h1>Juan Martin Souto</h1>
+
+            <p>
+                Estudiante de licenciatura en Gestion de Tecnologia de la Información – UADE<br>
+                Hincha de Independiente 🔴
+            </p>
+
+            <div class="links">
+                <a href="/PAGINA-WEB-JUAN-main/index_sitio_juan.html" target="_blank">TP1 – Index</a>
+                <a href="/blog.html" target="_blank">TP2 – Blog</a>
+                <a href="/REFUGIO/index.html" target="_blank">Trabajo Final</a>
+            </div>
+
+            <footer>© 2025 — Juan Souto</footer>
+        </section>
+
+    </main>
+
+</body>
+</html>
