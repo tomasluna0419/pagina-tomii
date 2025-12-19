@@ -1,0 +1,131 @@
+body {
+    margin: 0; padding: 0;
+    text-align: center;
+    background: linear-gradient(135deg, #0b1d39 70%, #8b0000 100%);
+    color: #ffffff;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    min-height: 100vh;
+}
+
+.titulo {
+    background-color: rgba(139, 0, 0, 0.9); 
+    color: white;
+    margin: 0;
+    padding: 20px 0;
+    border-bottom: 3px solid #ff3333;
+    box-shadow: 0 4px 10px rgba(255, 0, 0, 0.3);
+}
+
+.bienvenida {
+    font-size: 24px;
+    color: #ffcccc;
+}
+
+.identikit {
+    font-size: 25px;
+    background-color: #8b0000; 
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(255, 0, 0, 0.6);
+}
+
+.frase {
+    font-size: 24px;
+    color: #ff6666;
+    border-left: 5px solid #ff0000;
+    padding-left: 10px;
+    display: inline-block;
+    text-align: left;
+    background: rgba(255, 0, 0, 0.1);
+    border-radius: 5px;
+}
+
+.subtitulo{
+    color: #ff3333;
+    text-shadow: 1px 1px 5px rgba(255, 0, 0, 0.5);
+}
+
+.links{
+    display: flex; 
+    justify-content: center; 
+    gap: 30px;
+}
+
+a {
+    color: #ff6666;
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.3s ease-in-out;
+}
+
+a:hover{
+    color: #ffffff;
+    background-color: #8b0000;
+    padding: 5px 10px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(255, 0, 0, 0.6);
+}
+
+.boton-link {
+    display: inline-block;
+    margin-top: 20px;
+}
+
+body {
+            margin: 0;
+            text-align: center;
+            background-color: #12121A; /* Fondo oscuro elegante */
+            font-family: Arial, sans-serif;
+            color: white;
+ }
+
+ h1, h2 {
+            margin-top: 20px;
+  }
+
+section {
+            background-color: #2C2C34; /* Marco gris oscuro */
+            margin: 20px auto;
+            height: 300px;
+            width: 900px;
+            padding: 20px;
+            box-sizing: border-box;
+            border-radius: 10px;
+}
+
+.cuadrante {
+            background-color: #B22222; /* Rojo elegante */
+            width: 800px;
+            height: 250px;
+            display: flex;
+            align-items: center; /* Centrado vertical */
+            justify-content: flex-start; /* Imagen y texto alineados */
+            margin: auto;
+            padding: 20px;
+            box-sizing: border-box;
+            border-radius: 8px;
+            color: white;
+}
+
+.cuadrante img {
+            width: 250px;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-right: 20px;
+}
+
+.texto {
+            flex: 1;
+            text-align: left;
+        }
+
+        a {
+            color: #FFD700; /* Dorado para contraste */
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+ }
