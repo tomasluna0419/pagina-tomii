@@ -1,0 +1,637 @@
+/* ========== VARIABLES ========== */
+:root{
+  --primary:#FF914D;
+  --secondary:#2B6CB0;
+  --accent:#FFD93D;
+  --bg:#F7F8FA;
+  --text:#1F2937;
+  --muted:#E5E5E5;
+  --white:#FFFFFF;
+}
+
+/* ========== RESET BÁSICO ========== */
+*{ box-sizing:border-box; }
+html, body{ margin:0; padding:0; }
+body{
+  font-family:'Roboto',system-ui,-apple-system,Arial,sans-serif;
+  color:var(--text);
+  background:var(--bg);
+  line-height:1.5;
+}
+
+/* LOGO — tamaño corregido (única definición) */
+.brand-img{
+  width:70px;
+  height:70px;
+  object-fit:cover;
+  border-radius:50%;
+  display:inline-block;
+}
+
+@media (min-width:900px){
+  .brand-img{
+    width:130px;
+    height:130px;
+  }
+}
+
+/* Estilos blog-card */
+.blog-card {
+  text-align: center;
+}
+.blog-card .btn {
+  margin-top: 10px;
+}
+
+/* Accesibilidad: respeta usuarios con reducción de movimiento */
+@media (prefers-reduced-motion: reduce){
+  *{
+    animation-duration:0.001ms !important;
+    animation-iteration-count:1 !important;
+    transition:none !important;
+  }
+}
+
+/* ========== CONTENEDORES Y SECCIONES ========== */
+.container{
+  max-width:1100px;
+  margin:0 auto;
+  padding:24px;
+}
+.section{ padding:40px 0; }
+.section + .section{ padding-top:24px; }
+
+.section h2{
+  font-family:'Poppins',sans-serif;
+  font-weight:700;
+  font-size:clamp(1.6rem,1.2rem+1.5vw,2.4rem);
+  margin:0 0 12px;
+  color:#0f172a;
+}
+
+.lead{
+  font-size:1.05rem;
+  color:#334155;
+  max-width:800px;
+  margin:0;
+}
+
+.section .container > *:last-child{
+  margin-bottom:0;
+}
+
+/* ========== NAV ========== */
+.topbar{
+  background:var(--white);
+  border-bottom:1px solid var(--muted);
+  position:sticky;
+  top:0;
+  z-index:50;
+}
+
+.nav{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.brand{
+  display:flex;
+  gap:10px;
+  align-items:center;
+  text-decoration:none;
+}
+
+.brand-logo{
+  width:36px;
+  height:36px;
+  border-radius:50%;
+  background:radial-gradient(circle at 40% 35%, var(--accent), var(--primary));
+}
+
+.brand-name{
+  font-family:'Poppins',sans-serif;
+  font-weight:700;
+  font-size:1.1rem;
+  color:#0f172a;
+}
+
+.menu{
+  display:flex;
+  gap:18px;
+  flex-wrap:wrap;
+}
+
+.menu a{
+  text-decoration:none;
+  color:#334155;
+  font-weight:600;
+  padding:10px 12px;
+  border-radius:10px;
+}
+
+.menu a:hover{
+  background:var(--muted);
+}
+
+.menu a[aria-current="page"]{
+  background:var(--secondary);
+  color:#fff;
+}
+
+/* ========== HERO ========== */
+.hero{
+  background:linear-gradient(135deg,#2B6CB0,#4C7FD0,#7CB8FF);
+  color:#fff;
+}
+
+.hero-inner{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:28px;
+}
+
+.hero h1{
+  font-family:'Poppins',sans-serif;
+  font-size:clamp(2rem,1.5rem+2vw,3rem);
+}
+
+/* Hero de proyectos forzando texto blanco */
+.hero.project-hero,
+.hero.project-hero h1,
+.hero.project-hero p,
+.hero.project-hero .lead,
+.hero.project-hero .badge{
+  color:#fff;
+}
+
+/* ========== GRID (mobile-first) ========== */
+.grid{
+  display:grid;
+  gap:18px;
+}
+
+.grid-2{ grid-template-columns:1fr; }
+.grid-3{ grid-template-columns:1fr; }
+
+/* ≥600px */
+@media (min-width:600px){
+  .grid-2{ grid-template-columns:1fr 1fr; }
+  .grid-3{ grid-template-columns:1fr 1fr; }
+}
+
+/* ≥900px */
+@media (min-width:900px){
+  .grid-3{ grid-template-columns:repeat(3,1fr); }
+  .hero-inner{ grid-template-columns:1.2fr 1fr; }
+}
+
+/* ≥1200px */
+@media (min-width:1200px){
+  .container{ max-width:1200px; }
+}
+
+/* ========== CARDS & BLOG CARDS ========== */
+.card{
+  background:#fff;
+  border:1px solid var(--muted);
+  padding:18px;
+  border-radius:16px;
+  transition:.25s;
+}
+
+.card:hover{
+  transform:translateY(-3px);
+  box-shadow:0 8px 22px rgb(0 0 0 / .1);
+}
+
+/* Estilo tipo “artículo de blog” */
+.blog-card{
+  background:#fff;
+  border-radius:12px;
+  padding:0 0 18px;
+  box-shadow:0 3px 8px rgba(0,0,0,.08);
+  overflow:hidden;
+  border:1px solid var(--muted);
+}
+
+.blog-thumb{
+  width:100%;
+  height:180px;
+  object-fit:cover;
+  display:block;
+}
+
+.blog-card h3{ margin:14px; }
+.blog-card .help{ margin:0 14px 14px 14px; }
+.blog-card .tag{ margin:12px 14px 0 14px; display:inline-block; }
+
+/* ========== GALERÍAS / IMÁGENES ========== */
+.gallery-img{
+  width:100%;
+  height:240px;
+  object-fit:cover;
+  border-radius:12px;
+  display:block;
+}
+
+/* ========== BOTONES ========== */
+.btn{
+  display:inline-block;
+  padding:12px 18px;
+  border-radius:12px;
+  font-weight:700;
+  text-decoration:none;
+}
+
+.btn-primary{ background:var(--primary); color:#111827; }
+.btn-secondary{ background:var(--secondary); color:#fff; }
+.btn-ghost{ border:2px solid var(--secondary); color:var(--secondary); }
+
+.btn:hover{ filter:brightness(.95); }
+
+/* ========== FORM ========== */
+.form-row{
+  display:grid;
+  gap:14px;
+  grid-template-columns:1fr;
+}
+
+@media (min-width:600px){
+  .form-row{ grid-template-columns:1fr 1fr; }
+}
+
+.input, select, textarea{
+  width:100%;
+  padding:12px;
+  border-radius:12px;
+  border:1px solid var(--muted);
+}
+
+.help{ color:#64748b; font-size:.9rem; }
+
+/* ========== TABLAS ========== */
+.table{
+  width:100%;
+  border-collapse:separate;
+  border-spacing:0 8px;
+}
+
+.table th{
+  font-family:'Poppins';
+  font-weight:700;
+  color:#0f172a;
+}
+
+.table td, .table th{
+  padding:10px;
+  background:#fff;
+  border:1px solid var(--muted);
+}
+
+.table tr td:first-child,
+.table tr th:first-child{
+  border-radius:12px 0 0 12px;
+}
+
+.table tr td:last-child,
+.table tr th:last-child{
+  border-radius:0 12px 12px 0;
+}
+
+/* ========== FOOTER ========== */
+.footer{
+  background:#0b1220;
+  color:#cbd5e1;
+}
+
+.footer a{
+  color:#93c5fd;
+  text-decoration:none;
+}
+
+.footer a:hover{
+  text-decoration:underline;
+}
+
+/* ========== CHIPS (filtros) ========== */
+.chips{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+}
+
+.chip{
+  padding:8px 12px;
+  border-radius:999px;
+  cursor:pointer;
+  border:1px solid var(--muted);
+  background:#fff;
+  font-weight:600;
+}
+
+.chip.active{
+  background:#e8f1ff;
+  border-color:#b9cff2;
+  color:#1E40AF;
+}
+
+
+/* ================= HERO FULLSCREEN ================= */
+
+.hero-full{
+  position: relative;
+  min-height: 100vh;
+  background: url("../../IMG/fotohome2.png") center / cover no-repeat;
+  display: flex;
+  align-items: center;
+}
+
+.hero-overlay{
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(43,108,176,0.65),
+    rgba(0,0,0,0.65)
+  );
+}
+
+.hero-full-inner{
+  position: relative;
+  z-index: 2;
+}
+
+.hero-text{
+  max-width: 640px;
+  color: #fff;
+}
+
+.hero-text h1{
+  font-family: 'Poppins', sans-serif;
+  font-size: clamp(2.4rem, 4vw, 3.5rem);
+  line-height: 1.1;
+  margin: 12px 0;
+}
+
+.hero-text p{
+  font-size: 1.1rem;
+  opacity: 0.95;
+}
+
+.hero-actions{
+  margin-top: 24px;
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+/* Badge sobre hero */
+.hero-full .badge{
+  display: inline-block;
+  background: rgba(255,255,255,0.15);
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: .85rem;
+  color: #fff;
+}
+
+/* ================= HERO FULLSCREEN REAL ================= */
+
+.hero-fullscreen {
+  position: relative;
+  min-height: calc(100vh - 88px); /* altura real descontando el header */
+  background-image: url("../IMG/fotohome2.png"); /* CAMBIÁ la imagen si querés */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  display: flex;
+  align-items: center;
+}
+
+/* capa oscura para que el texto se lea */
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  z-index: 1;
+}
+
+/* contenido del hero */
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 700px;
+}
+
+/* texto blanco */
+.hero-fullscreen h1,
+.hero-fullscreen p,
+.hero-fullscreen .lead,
+.hero-fullscreen .badge {
+  color: #ffffff;
+}
+
+/* badge */
+.hero-fullscreen .badge {
+  display: inline-block;
+  margin-bottom: 12px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.15);
+  font-weight: 600;
+}
+
+/* responsive */
+@media (max-width: 768px) {
+  .hero-fullscreen {
+    min-height: calc(100vh - 72px);
+    padding: 40px 0;
+  }
+}/* ================= HERO FULLSCREEN REAL ================= */
+
+.hero-fullscreen {
+  position: relative;
+  min-height: calc(100vh - 88px); /* altura real descontando el header */
+  background-image: url("../IMG/fotohome2.png"); /* CAMBIÁ la imagen si querés */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  display: flex;
+  align-items: center;
+}
+
+/* capa oscura para que el texto se lea */
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  z-index: 1;
+}
+
+/* contenido del hero */
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 700px;
+}
+
+/* texto blanco */
+.hero-fullscreen h1,
+.hero-fullscreen p,
+.hero-fullscreen .lead,
+.hero-fullscreen .badge {
+  color: #ffffff;
+}
+
+/* badge */
+.hero-fullscreen .badge {
+  display: inline-block;
+  margin-bottom: 12px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.15);
+  font-weight: 600;
+}
+
+/* responsive */
+@media (max-width: 768px) {
+  .hero-fullscreen {
+    min-height: calc(100vh - 72px);
+    padding: 40px 0;
+  }
+}
+
+/* ================= NAV MÁS CHICO + NARANJA SUAVE ================= */
+
+/* altura general del header */
+.topbar {
+  background: rgba(255, 145, 77, 0.9); /* naranja Huellitas suave */
+  border-bottom: none;
+}
+
+/* contenedor del nav */
+.topbar .container {
+  padding: 10px 24px; /* antes era más alto */
+}
+
+/* logo más contenido */
+.brand-img {
+  width: 48px;
+  height: 48px;
+}
+
+/* links del menú */
+.menu a {
+  font-size: 0.9rem;
+  padding: 8px 10px;
+  color: #ffffff;
+  font-weight: 600;
+}
+
+/* hover */
+.menu a:hover {
+  background: rgba(255, 255, 255, 0.18);
+}
+
+/* link activo */
+.menu a[aria-current="page"] {
+  background: rgba(255, 255, 255, 0.25);
+  color: #ffffff;
+}
+
+/* que el hero no quede tapado */
+.hero-full {
+  margin-top: 0;
+}
+
+/* responsive */
+@media (max-width: 768px) {
+  .brand-img {
+    width: 42px;
+    height: 42px;
+  }
+
+  .menu a {
+    font-size: 0.85rem;
+    padding: 6px 8px;
+  }
+}
+
+/* ================= NAV AZUL SUAVE + TAMAÑO EQUILIBRADO ================= */
+
+.topbar {
+  background: rgba(43, 108, 176, 0.92); /* azul institucional */
+  border-bottom: none;
+}
+
+/* altura y aire del nav */
+.topbar .container {
+  padding: 14px 24px;
+}
+
+/* logo un poco más grande */
+.brand-img {
+  width: 60px;
+  height: 60px;
+}
+
+/* links del menú */
+.menu a {
+  font-size: 0.95rem;
+  padding: 10px 14px;
+  color: #ffffff;
+  font-weight: 600;
+}
+
+/* hover */
+.menu a:hover {
+  background: rgba(255, 255, 255, 0.18);
+}
+
+/* link activo */
+.menu a[aria-current="page"] {
+  background: rgba(255, 255, 255, 0.28);
+  color: #ffffff;
+}
+
+/* responsive */
+@media (max-width: 768px) {
+  .brand-img {
+    width: 52px;
+    height: 52px;
+  }
+
+  .menu a {
+    font-size: 0.9rem;
+    padding: 8px 12px;
+  }
+}
+
+/* ================= LOGO DEFINITIVO ================= */
+
+.brand-img {
+  width: 90px;
+  height: 90px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+/* Desktop grande */
+@media (min-width: 900px) {
+  .brand-img {
+    width: 120px;
+    height: 120px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .brand-img {
+    width: 70px;
+    height: 70px;
+  }
+}
