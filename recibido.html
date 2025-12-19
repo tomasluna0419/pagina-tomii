@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Mensaje enviado — Formuleros</title>
+
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root{
+      --bg: #bcbcbc;
+      --card: #ffffff;
+      --text: #333;
+      --muted: #9b9b9b;
+      --brand: rgb(79, 16, 16);
+      --brand-dark: rgb(89, 0, 0);
+      --border: #ccc;
+      --radius: 8px;
+    }
+
+    body {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.6;
+      background-color: var(--bg);
+      color: var(--text);
+    }
+
+    a { text-decoration: none; color: var(--muted); }
+
+    /* NAV */
+    nav {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: var(--brand);
+      padding: 10px 40px;
+      position: relative;
+      flex-wrap: wrap;
+    }
+    nav .logo {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      position: absolute;
+      left: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+      color:#fff;
+      font-weight:700;
+    }
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 16px;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+    }
+    nav ul li a { font-weight: 600; color:#e9e9e9; }
+
+    /* CONTENIDO */
+    main {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      text-align: center;
+      padding: 40px 16px;
+    }
+
+    .card {
+      background: var(--card);
+      border-radius: var(--radius);
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      padding: 30px 20px;
+      max-width: 500px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .card h1 {
+      color: #111;
+      font-size: clamp(1.5rem, 3vw, 2.2rem);
+    }
+
+    .card p {
+      color: #444;
+      max-width: 40ch;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px 14px;
+      border-radius: var(--radius);
+      font-weight: 700;
+      cursor: pointer;
+      border: none;
+      text-align: center;
+      transition: transform .06s ease, opacity .2s ease;
+    }
+
+    .btn-primary { background: var(--brand-dark); color: #fff; }
+    .btn:active { transform: scale(0.98); }
+    .btn:focus-visible { outline: 2px solid #0d0338; outline-offset: 2px; }
+
+    footer {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 60px;
+      background-color: var(--brand-dark);
+      color: white;
+      text-align: center;
+      gap: 8px;
+      padding: 0 12px;
+    }
+
+    @media (max-width: 768px) {
+      nav {
+        flex-direction: column;
+        padding: 20px;
+      }
+
+      nav .logo {
+        position: static;
+        transform: none;
+        margin-bottom: 10px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <nav>
+    <a href="blog.html" class="logo">
+      <img src="IMG/logo.png" alt="Logo del sitio" height="30" width="30">
+      <span>Formuleros</span>
+    </a>
+    <ul>
+      <li><a href="blog.html">INICIO</a></li>
+      <li><a href="acercade.html">ACERCA DE</a></li>
+      <li><a href="publicaciones.html">PUBLICACIONES</a></li>
+      <li><a href="contacto.html">CONTACTO</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <div class="card">
+      <h1>¡Gracias por tu mensaje!</h1>
+      <p>Recibimos tus datos correctamente. Nos vamos a contactar con vos en breve.</p>
+      <a href="blog.html" class="btn btn-primary">Volver al inicio</a>
+    </div>
+  </main>
+
+  <footer>
+    <a href="blog.html" style="color:#fff;"></a>
+  </footer>
+</body>
+</html>
