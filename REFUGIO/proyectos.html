@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Huellitas • Proyectos</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="assets/css/styles.css" />
+
+  <!-- HERO PROYECTOS + AJUSTES -->
+  <style>
+    .hero-fullscreen{
+      position: relative;
+      min-height: 70vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: #fff;
+      background:
+        linear-gradient(rgba(0,0,0,.55), rgba(0,0,0,.55)),
+        url("IMG/fotoproyecto6.jpg") center/cover no-repeat;
+    }
+
+    .hero-fullscreen .hero-content{
+      max-width: 700px;
+      padding: 20px;
+    }
+
+    .hero-fullscreen h1{
+      font-family: 'Poppins', sans-serif;
+      font-size: clamp(2.2rem, 5vw, 3.2rem);
+      margin-bottom: 16px;
+    }
+
+    .hero-fullscreen h1::after{
+      content: "";
+      display: block;
+      width: 80px;
+      height: 4px;
+      background: #f97316;
+      margin: 16px auto 0;
+      border-radius: 2px;
+    }
+
+    .hero-fullscreen .lead{
+      font-size: 1.1rem;
+      color: #f1f5f9;
+    }
+
+    /* Mostrar imagen completa */
+    .blog-card .blog-thumb{
+      width: 100%;
+      height: 220px;
+      object-fit: contain;
+      background-color: #f3f4f6;
+      border-radius: 12px;
+      padding: 10px;
+      cursor: pointer;
+    }
+
+    /*  MODAL / LIGHTBOX */
+    .lightbox{
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,.75);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 999;
+    }
+
+    .lightbox img{
+      max-width: 90%;
+      max-height: 90%;
+      border-radius: 16px;
+      background: #fff;
+      padding: 10px;
+    }
+
+    .lightbox.show{
+      display: flex;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header class="topbar">
+    <div class="container nav">
+      <a class="brand" href="index.html">
+        <img src="IMG/logohuellitas.png" alt="Logo Huellitas Argentinas" class="brand-img">
+        <span class="brand-name"></span>
+      </a>
+
+      <nav class="menu">
+        <a href="index.html">Home</a>
+        <a href="nosotros.html">Nosotros</a>
+        <a href="proyectos.html" aria-current="page">Proyectos</a>
+        <a href="involucrate.html">Involucrate</a>
+        <a href="contacto.html">Contacto</a>
+        <a href="app.html">App JS</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- MAIN -->
+  <main>
+
+    <!-- HERO -->
+    <section class="hero hero-fullscreen">
+      <div class="container hero-content">
+        <h1>Nuetros Proyectos</h1>
+        <p class="lead">
+          Acciones reales que cambian la vida de perros y gatos todos los días.
+        </p>
+      </div>
+    </section>
+
+    <!-- LISTA + FILTROS -->
+    <section class="section">
+      <div class="container" data-projects>
+
+        <h2>Proyectos</h2>
+        <p class="lead">Conocé nuestras acciones principales</p>
+
+        <!-- FILTROS -->
+        <div class="chips" role="tablist" aria-label="Filtrar proyectos por categoría" style="margin:12px 0 20px;">
+          <button class="chip active" data-filter="todos">Todos</button>
+          <button class="chip" data-filter="rescate">Rescate</button>
+          <button class="chip" data-filter="adopcion">Adopción</button>
+          <button class="chip" data-filter="conservacion">Conservación</button>
+        </div>
+
+        <!-- ARTÍCULOS -->
+        <div id="projects-list" class="grid grid-3">
+
+          <article class="blog-card" data-project data-cat="rescate">
+            <img src="IMG/operacion invierno.jpg" class="blog-thumb" alt="Operativo Invierno">
+            <span class="tag">Rescate</span>
+            <h3>Operativo Invierno</h3>
+            <p class="help">
+              Asistencia nocturna, abrigo y alimento durante los meses más fríos del año.
+            </p>
+            <a class="btn btn-secondary" href="proyecto1.html">Leer artículo →</a>
+          </article>
+
+          <article class="blog-card" data-project data-cat="adopcion">
+            <img src="IMG/adopcion.jpg" class="blog-thumb" alt="Feria de adopción CABA">
+            <span class="tag">Adopción</span>
+            <h3>Feria de adopción CABA</h3>
+            <p class="help">
+              Eventos donde familias conocen perros y gatos listos para una adopción responsable.
+            </p>
+            <a class="btn btn-secondary" href="proyecto2.html">Leer artículo →</a>
+          </article>
+
+          <article class="blog-card" data-project data-cat="conservacion">
+            <img src="IMG/fotoproyecto5.jpg" class="blog-thumb" alt="Campaña de Esterilización">
+            <span class="tag">Conservación</span>
+            <h3>Campaña de Esterilización</h3>
+            <p class="help">
+              Jornadas de castración para prevenir camadas no deseadas y reducir el abandono.
+            </p>
+            <a class="btn btn-secondary" href="proyecto3.html">Leer artículo →</a>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!--  MODAL -->
+  <div class="lightbox" id="lightbox">
+    <img src="" alt="Imagen ampliada">
+  </div>
+
+  <!-- JS MODAL -->
+  <script>
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = lightbox.querySelector('img');
+
+    document.querySelectorAll('.blog-thumb').forEach(img => {
+      img.addEventListener('click', () => {
+        lightboxImg.src = img.src;
+        lightbox.classList.add('show');
+      });
+    });
+
+    lightbox.addEventListener('click', () => {
+      lightbox.classList.remove('show');
+      lightboxImg.src = '';
+    });
+  </script>
+
+</body>
+</html>
